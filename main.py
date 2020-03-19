@@ -24,59 +24,39 @@ class MenuScreen(Screen):
         box = BoxLayout(orientation='vertical')
 
         def xxx():
-            
-            Krya().run()
+            return sv
+        def xxb():
+            return sb
+        def xxn():
+            return sn
 
         box.add_widget(Button(text='Играть', on_press=lambda x: xxx()))
+        box.add_widget(Button(text='Словарь', on_press=lambda x: xxx()))
+        box.add_widget(Button(text='Параметры', on_press=lambda x: xxb()))
+        box.add_widget(Button(text='Поддержка', on_press=lambda x: xxn()))
+
         self.add_widget(box)
 
-sm = ScreenManager()
-sm.add_widget(MenuScreen(name='menu'))
+class PlayScreen(Screen):
+    pass
+class SettingsScreen(Screen):
+    def Screen(self):
+        box = BoxLayout(orientation='vertical')
+        box.add_widget(Button(text='Звук'))
+        box.add_widget(Button(text='Фон(белый/чёрный)'))
+        self.add_widget(box)
 
 def set_screen(name_screen):
     sm.current = name_screen
 
 sm = ScreenManager()
 sm.add_widget(MenuScreen(name='menu'))
-
-class Krya(App):
-    def addoperation(self, instence):
-        o
-
-    def build(self):
-        gl = GridLayout(cols=5, spacing=20, padding=30)
-
-        gl.add_widget(Button(text=('A'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Б'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('В'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Г'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Д'), on_press=self.addoperation))
-
-        gl.add_widget(Button(text=('И'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Й'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('К'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Л'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('М'), on_press=self.addoperation))
-
-        gl.add_widget(Button(text=('О'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('П'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Р'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('С'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Т'), on_press=self.addoperation))
-
-        gl.add_widget(Button(text=('У'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ф'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Х'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ц'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ч'), on_press=self.addoperation))
-
-        gl.add_widget(Button(text=('Ш'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Щ'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ъ'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ы'), on_press=self.addoperation))
-        gl.add_widget(Button(text=('Ь'), on_press=self.addoperation))
-
-        return gl
+sv = ScreenManager()
+sv.add_widget(PlayScreen(name='play'))
+sb = ScreenManager()
+sb.add_widget(SettingsScreen(name='settings'))
+sn = ScreenManager()
+sn.add_widget(MenuScreen(name=''))
 
 if __name__ == '__main__':
     TeachWordsApp().run()
